@@ -3,10 +3,14 @@ import corsImport from './corsImport';
 import ExternalComponent from './react';
 
 export const getChunkPath = (basePath, nameSpace, module) => {
+  console.log('initial:', basePath, nameSpace, module);
   if (!window.entryManifest) return;
   if (!nameSpace) return;
   if (!window.entryManifest[nameSpace]) return;
   let pathString = [];
+  console.log('empty path string');
+  console.log(window.entryManifest);
+  console.log('manifest with namespace', window.entryManifest[nameSpace]);
   if (window?.entryManifest[nameSpace]
     && window?.entryManifest[nameSpace][module]
     && window?.entryManifest[nameSpace][module].path) {
